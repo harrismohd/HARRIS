@@ -1,0 +1,183 @@
+<?xml version="1.0" ?>
+
+<robot name="mrm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- BGN - Include -->
+  <xacro:include filename="$(find mrm_description)/urdf/links_joints.xacro" />
+  <!-- END - Include -->
+
+<!-- BGN - Robot description -->
+ 
+    <m_link_cylinder name="base_link"
+            origin_rpy="0 0 0" origin_xyz="0 0 0.5"
+            mass="2024"
+            ixx="1562" ixy="0" ixz="0"
+            iyy="1562" iyz="0"
+            izz="1224.5"
+            radius="1.1" length="1" />
+    
+    <m_joint name="base_link__link_01" type="revolute"
+           axis_xyz="0 0 1"
+           origin_rpy="0 0 0" origin_xyz="0 0 1"
+           parent="base_link" child="link_01"
+           limit_e="1000" limit_l="-1.57" limit_u="1.57" limit_v="0.5"  />
+
+    <m_link_box name="link_01"
+              origin_rpy="0 0 0" origin_xyz="0 0 0.2"
+              mass="500"
+              ixx="187.5" ixy="0" ixz="0"
+              iyy="187.5" iyz="0"
+              izz="187.5"
+              size="1.5 0.5 0.5" />
+
+    <m_joint name="link_01__link_02" type="revolute"
+           axis_xyz="1 1 0"
+           origin_rpy="0 0 0" origin_xyz="0.5 0 0.4"
+           parent="link_01" child="link_02" 
+           limit_e="1000" limit_l="0" limit_u="0" limit_v="0.5" />
+    
+    <m_link_cylinder name="link_02"
+              origin_rpy="0 0 0" origin_xyz="0 0 0.4"
+              mass="40"
+             ixx="4.9146" ixy="0" ixz="0"
+              iyy="4.9146" iyz="0"
+             izz="0.648"
+              radius="0.18" length="0.8" />
+
+     <m_joint name="link_01__link_02_2" type="revolute"
+           axis_xyz="1 1 0"
+           origin_rpy="0 0 0" origin_xyz="-0.5 0 0.4"
+           parent="link_01" child="link_02_2" 
+           limit_e="1000" limit_l="0" limit_u="0" limit_v="0.5" />
+  
+    <m_link_cylinder name="link_02_2"
+              origin_rpy="0 0 0" origin_xyz="0 0 0.4"
+              mass="40"
+              ixx="4.9146" ixy="0" ixz="0"
+             iyy="4.9146" iyz="0"
+             izz="0.648"
+              length="0.8" radius="0.18" />
+    
+    <m_joint name="link_02__link_03" type="revolute"
+           axis_xyz="1 1 1"
+           origin_rpy="0 0 0" origin_xyz="0 0 0.8"
+           parent="link_02" child="link_03" 
+           limit_e="1000" limit_l="0" limit_u="1.45" limit_v="0.5" />
+
+     <m_link_cylinder name="link_03"
+              origin_rpy="0 0 0" origin_xyz="0 0 0.4"
+              mass="30"
+             ixx="3.5736" ixy="0" ixz="0"
+             iyy="3.5736" iyz="0"
+             izz="0.3375"
+              length="0.8" radius="0.15" />
+
+    <m_joint name="link_02_2__link_03_3" type="revolute"
+           axis_xyz="1 1 0"
+           origin_rpy="0 0 0" origin_xyz="0 0 0.8"
+           parent="link_02_2" child="link_03_3" 
+           limit_e="1000" limit_l="-1.45" limit_u="0" limit_v="0.5" />
+    
+    <m_link_cylinder name="link_03_3"
+              origin_rpy="0 0 0" origin_xyz="0 0 0.4"
+              mass="30"
+             ixx="3.5736" ixy="0" ixz="0"
+             iyy="3.5736" iyz="0"
+             izz="0.3375"
+              length="0.8" radius="0.15" />
+
+    <m_joint name="link_03__link_04" type="revolute"
+           axis_xyz="1 1 0"
+           origin_rpy="0 0 0" origin_xyz="0 0 0.8"
+           parent="link_03" child="link_04" 
+           limit_e="1000" limit_l="0" limit_u="1.35" limit_v="0.5" />
+  
+    <m_link_cylinder name="link_04"
+            origin_rpy="0 0 0" origin_xyz="0 0 0.4"
+            mass="30"
+         ixx="3.4536" ixy="0" ixz="0"
+         iyy="3.4536" iyz="0"
+         izz="0.2535"
+            length="0.8" radius="0.13" />
+
+    <m_joint name="link_03_3__link_04_4" type="revolute"
+           axis_xyz="1 1 0"
+           origin_rpy="0 0 0" origin_xyz="0 0 0.8"
+           parent="link_03_3" child="link_04_4" 
+           limit_e="1000" limit_l="-1.35" limit_u="0" limit_v="0.5" />
+    
+     <m_link_cylinder name="link_04_4"
+            origin_rpy="0 0 0" origin_xyz="0 0 0.4"
+            mass="30"
+          ixx="3.4536" ixy="0" ixz="0"
+         iyy="3.4536" iyz="0"
+         izz="0.2535"
+            length="0.8" radius="0.13" />
+
+    <m_joint name="link_04_4__link_05_55" type="revolute"
+           axis_xyz="0 0.5 0"
+           origin_rpy="0 0 0" origin_xyz="0.03 0 0.49"
+           parent="link_04_4" child="link_05_55" 
+           limit_e="1000" limit_l="0" limit_u="0.2" limit_v="0.5" />
+
+    <m_link_box name="link_05_55"
+              origin_rpy="0 0 0" origin_xyz="0 0 0.5"
+              mass="10"
+               ixx="0.010666" ixy="0" ixz="0"
+              iyy="0.010666" iyz="0"
+               izz="0.010666"
+              size="0.025 0.1 0.5" />
+
+     <m_joint name="link_04_4__link_05_555" type="revolute"
+           axis_xyz="0 0.5 0"
+           origin_rpy="0 0 0" origin_xyz="-0.03 0 0.49"
+           parent="link_04_4" child="link_05_555" 
+           limit_e="1000" limit_l="-0.2" limit_u="0" limit_v="0.5"/>
+
+    <m_link_box name="link_05_555"
+            origin_rpy="0 0 0" origin_xyz="0 0 0.5"
+            mass="10"
+          ixx="0.010666" ixy="0" ixz="0"
+         iyy="0.010666" iyz="0"
+         izz="0.010666"
+            size="0.025 0.1 0.5" />
+
+     <m_joint name="link_04__link_05" type="revolute"
+           axis_xyz="0 0.5 0"
+           origin_rpy="0 0 0" origin_xyz="0.03 0 0.49"
+           parent="link_04" child="link_05" 
+           limit_e="1000" limit_l="0" limit_u="0.2" limit_v="0.5"/>
+    
+    <m_link_box name="link_05"
+            origin_rpy="0 0 0" origin_xyz="0 0 0.5"
+            mass="10"
+         ixx="0.010666" ixy="0" ixz="0"
+          iyy="0.010666" iyz="0"
+          izz="0.010666"
+            size="0.025 0.1 0.5" />
+
+    <m_joint name="link_04__link_05_5" type="revolute"
+           axis_xyz="0 0.5 0"
+           origin_rpy="0 0 0" origin_xyz="-0.03 0 0.49"
+           parent="link_04" child="link_05_5" 
+           limit_e="1000" limit_l="-0.2" limit_u="0" limit_v="0.5"/>
+
+    <m_link_box name="link_05_5"
+            origin_rpy="0 0 0" origin_xyz="0 0 0.5"
+            mass="10"
+           ixx="0.010666" ixy="0" ixz="0"
+           iyy="0.010666" iyz="0"
+           izz="0.010666"
+         size="0.025 0.1 0.5"  />
+
+     
+
+<!-- END - Robot description -->
+
+<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+</gazebo>
+
+
+</robot>
